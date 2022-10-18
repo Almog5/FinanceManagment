@@ -1,0 +1,42 @@
+table {
+    border: 2px solid rgb(60, 81, 60);
+    border-radius: 5px;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+  }
+
+  tbody :hover {
+    background-color: rgb(60, 81, 60);
+    color: white;
+  }
+    
+  td {
+    text-align: center;
+  }
+
+  td span {
+    cursor: pointer;
+    z-index: 20px;
+  }
+
+  td span :hover{
+    z-index: 30px;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .header button {
+    width: 2rem;
+    height: 2rem;
+    font-size: 30px;
+    border-style: none;
+    border-radius: 30%;
+    background-color: rgb(60, 81, 60);
+    color: white;
+    cursor: pointer;
+  }
