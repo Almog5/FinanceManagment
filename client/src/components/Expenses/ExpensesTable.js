@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from "react"
 import "./ExpensesTable.css"
-import * as api from "../../api"
 import { ExpensesContext } from '../../store/ExpensesProvider';
 import { MODE } from '../../App';
 
@@ -16,14 +15,6 @@ const ExpensesTable = ({ openAddModal, openDeleteModal,  setMode, setSelectedRec
     getExpenses();
   },[getExpenses])
 
-  // const getAllExpenses = useCallback(async () => {
-  //   try {
-  //       const { data } = await api.getAllExpenses();
-  //       expensesCtx.getExpenses(data.expenses);
-  //   } catch (err) {
-  //     console.error(err.message)
-  //   }
-  // },[expensesCtx])
 
   const handleAdd = () => {
     setMode(MODE.Add)
