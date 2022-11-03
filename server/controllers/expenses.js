@@ -21,8 +21,8 @@ const getExpense = async (req, res) => {
 }
 
 const createExpense = async (req, res) => {
-  req.body.userID = req.user.userID;
-  req.body.accountID = req.account.accountID;
+  req.body.userID = '635d6b07f7e691e5a84be5e0';//req.user.userID;
+  req.body.accountID = '1';//req.account.accountID;
   console.log("#Expenses: createExpense")
   const expense = await Expense.create(req.body)
   res.status(StatusCodes.CREATED).json({ expense })

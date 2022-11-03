@@ -50,8 +50,7 @@ const ExpenseSchema = new mongoose.Schema(
         ref: 'User',
     },
     accountID: {
-      type: mongoose.Types.ObjectId,
-      ref: 'Account',
+      type: String,
       // required: [true, 'Please provide Account'],
   }
   },

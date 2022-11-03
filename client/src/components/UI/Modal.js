@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./Modal.css";
 
-const Modal = ({ children, closeModal }) => {
+const Modal = ({ children, closeModal, style }) => {
   const portalElement = document.getElementById("overlays");
 
   const modal = (
-    <div className="modal">
+    <div className='modal' style={style}>
       <div className="content">{children}</div>
     </div>
   );

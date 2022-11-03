@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useReducer } from "react";
+import React, { useCallback, useReducer } from "react";
 import * as api from '../api';
 
 export const ExpensesContext = React.createContext({
@@ -20,7 +20,7 @@ const expensesReducer = (expenses = [], action) => {
       const index = expenses.findIndex(ex => ex._id === action.payload.id);
       expenses[index] = action.payload.expense;
       return [...expenses]
-    case "DElETE":
+    case "DELETE":
       return expenses.filter((exp) => exp._id !== action.payload)
     default:
       return expenses

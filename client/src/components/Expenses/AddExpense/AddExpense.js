@@ -8,6 +8,7 @@ import { ExpensesContext } from '../../../store/ExpensesProvider';
 import { formatDate } from '../ExpensesTable'
 import { MODE } from "../../../App"
 
+
 const formReducer = (state, event) => {
   return {
     ...state,
@@ -19,6 +20,7 @@ const AddExpense = ({ closeModal, mode, selectedRecord }) => {
   const [formData, setFormData] = useReducer(formReducer, {});
   const expensesCtx = useContext(ExpensesContext);
   console.log(selectedRecord, formData)
+
 
   useEffect(() => {
     if(selectedRecord){

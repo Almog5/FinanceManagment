@@ -1,0 +1,35 @@
+.delete-modal-content {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    margin: auto
+}
+
+.delete-modal-content span {
+    margin-bottom: 10px;
+}
+
+.btn-action {
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-action button {
+    margin-left: 10px;
+    height: 30px;
+    width: 100px;
+    font-size: 20px;
+    border-style: none;
+    cursor: pointer;
+    font-weight: 600;
+    background-color: rgb(60, 81, 60);
+    color: white;
+    border-radius: 5px;
+}
+
+.btn-action button:hover {
+    width: 102px;
+    height: 32px;
+    box-shadow: 5px 5px 5px silver;
+}
