@@ -55,7 +55,54 @@ const deleteExpense = async (req, res) => {
   res.status(StatusCodes.OK).send()
 }
 
-const searchExpense = async (req, res) => {}
+const searchExpenses = async (req, res) => {
+  console.log('#Expenses controller - searchExpense')
+  const { month, year, name, type, fields, sort, numericFilters } = req.query
+  const queryObject = {}
+  if(month && year){
+    const startDate = `${year}-${month}-01`;
+    const endtDate = `${year}-${month}-${new Date(year, month + 1, 0)}`;//take the last day of month, check if month + 1 works
+    queryObject.date = {"$gte": startDate, "$lte": endtDate}
+  }
+  if(name){
+    queryObject.name = name;
+  }
+  if(type){
+    queryObject.type = type;
+  }
+  if(numericFilters){
+    const operatorMap = {
+      ">": "$gt",
+      ">=": "$gte",
+      "=": "$eq",
+      "<": "$lt",
+      "<=": "$lte",
+    }
+  }
+
+  console.log(queryObject);
+  let results = Expense.find(queryObject);
+
+  if(sort){
+    const sortList = sort.split(",").join(" ");
+    results = results.sort(sortList);
+  }
+
+  if(fields){
+    const fieldsList = fields.split(",").join(" ");
+    results = results.select(fieldsList);
+  }
+
+  if(req.query.page && req.query.limit){
+    const page = Number(req.query.page) || 1;
+    const limit = Number(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
+    results = results.skip(skip).limit(limit);
+  }
+
+  const expenses = await results;
+  res.status(StatusCodes.OK).json({ count: expenses.length, data: expenses });
+}
 
 module.exports = {
   getAllExpenses,
@@ -63,5 +110,5 @@ module.exports = {
   createExpense,
   updateExpense,
   deleteExpense,
-  searchExpense,
+  searchExpenses,
 }
